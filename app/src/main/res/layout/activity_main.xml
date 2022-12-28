@@ -4,19 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:visibility="visible"
+    tools:context=".MainActivity"
+    tools:visibility="visible">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:theme="@style/Theme.MiBotonRaised"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/titulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/titulo"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.422"
@@ -29,9 +36,26 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/titulo"
-            android:background="#F44336"
             android:text="@string/boton"
-            android:theme="@style/MiBotonRaised" />
+            android:textColor="@color/white"
+            android:theme="@style/Theme.MiBotonRaised"
+            android:backgroundTint="@color/colorAccent"
+            tools:ignore="TextContrastCheck" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabMiFAB"
+            android:layout_width="90dp"
+            android:layout_height="82dp"
+            android:layout_below="@+id/botonclick"
+            android:backgroundTint="@color/colorRedShort"
+            android:contentDescription="@string/app_name"
+            android:hapticFeedbackEnabled="true"
+            android:src="@drawable/start_9"
+            android:visibility="visible"
+            tools:visibility="visible" />
+
 
     </RelativeLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
