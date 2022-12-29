@@ -17,7 +17,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
-        
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" >
@@ -35,11 +35,28 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.08" />
 
+            <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+                android:id="@+id/sfiMiIndicadorRefresh"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titulo"
+                >
+
+                <ListView
+                    android:id="@+id/lstMiLista"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/sfiMiIndicadorRefresh">
+
+                </ListView>
+
+            </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
             <Button
                 android:id="@+id/botonclick"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/titulo"
+                android:layout_below="@+id/sfiMiIndicadorRefresh"
                 android:text="@string/boton"
                 android:textColor="@color/white"
                 android:theme="@style/Theme.MiBotonRaised"
@@ -60,9 +77,8 @@
                 tools:ignore="ImageContrastCheck"
                 tools:visibility="visible" />
 
-
         </RelativeLayout>
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

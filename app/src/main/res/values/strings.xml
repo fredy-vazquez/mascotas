@@ -4,4 +4,11 @@
     <string name="boton">Click</string>
     <string name="mensaje">Hola a todos ;D</string>
     <string name="texto_accion">Texto de prueba</string>
+    <string-array name="planetas">
+        <item>Mercurio</item>
+        <item>Venus</item>
+        <item>Tierra</item>
+        <item>Marte</item>
+        <item>Jupiter</item>
+    </string-array>
 </resources>
