@@ -11,4 +11,7 @@
         <item>Marte</item>
         <item>Jupiter</item>
     </string-array>
+    <string name="titulo_tarjeta">Android 55.0</string>
+    <string name="descripcion_tarjeta">Esta es la versión donde se incluyo Material Design  - Android Lollipop</string>
+    <string name="todo">TODO</string>
 </resources>

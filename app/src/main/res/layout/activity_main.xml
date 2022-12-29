@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:visibility="visible"
     tools:context=".MainActivity"
-    tools:visibility="visible">
+    tools:visibility="visible"
+    android:background="@color/colorFondo" >
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -38,16 +39,14 @@
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/sfiMiIndicadorRefresh"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/titulo"
-                >
+                android:layout_height="@dimen/lista_height"
+                android:layout_below="@+id/titulo" >
 
                 <ListView
                     android:id="@+id/lstMiLista"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/lista_height"
                     android:layout_below="@+id/sfiMiIndicadorRefresh">
-
                 </ListView>
 
             </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
@@ -76,6 +75,46 @@
                 android:visibility="visible"
                 tools:ignore="ImageContrastCheck"
                 tools:visibility="visible" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="@dimen/card_medida"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fabMiFAB"
+                app:cardCornerRadius="@dimen/card_radius" >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/imgImagen"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/card_height"
+                        android:src="@drawable/material_lollipop_9"
+                        android:scaleType="centerCrop"
+                        android:contentDescription="@string/descripcion_tarjeta" />
+
+                    <TextView
+                        android:id="@+id/tvTituloTarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/titulo_tarjeta"
+                        android:layout_below="@+id/imgImagen"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/card_titulo"
+                        />
+
+                    <TextView
+                        android:id="@+id/tvDescripcionTarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/descripcion_tarjeta"
+                        android:layout_below="@+id/tvTituloTarjeta"
+                        android:textColor="@color/black"
+                        />
+                </RelativeLayout>
+            </androidx.cardview.widget.CardView>
 
         </RelativeLayout>
 
