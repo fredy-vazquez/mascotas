@@ -3,9 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:visibility="visible"
-    tools:context=".MainActivity"
-    tools:visibility="visible" >
+    tools:context=".view.TopMascotas">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -15,6 +13,7 @@
         <include
             android:id="@+id/miActionBar"
             layout="@layout/actionbar" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -28,6 +27,7 @@
                 android:layout_height="41dp"
                 android:contentDescription="@string/logo"
                 android:src="@drawable/patita_9"
+                android:onClick="regresar"
                 android:layout_gravity="center_vertical"/>
 
             <TextView
@@ -47,28 +47,16 @@
                 android:layout_height="43dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/start"
-                android:src="@drawable/ic_star_9"
-                android:onClick="verTop"/>
+                android:src="@drawable/ic_star_9"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/myRv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/miActionBar"/>
-
-        <ImageButton
-            android:layout_width="wrap_content"
+            android:id="@+id/myRv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/myRv"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="-57dp"
-            android:layout_marginEnd="2dp"
-            android:background="@color/colorAccent"
-            android:foregroundGravity="right"
-            android:src="@drawable/ic_camera_9" />
-    </RelativeLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/miActionBar" />
 
+    </RelativeLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
