@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.frvazquez.mascotas.adapter.PageAdapter;
 import com.frvazquez.mascotas.fragments.MascotasFragment;
 import com.frvazquez.mascotas.fragments.PerfilMascotaFragment;
+import com.frvazquez.mascotas.view.AcercaDe;
 import com.frvazquez.mascotas.view.Contacto;
 import com.frvazquez.mascotas.view.TopMascotas;
 import com.google.android.material.tabs.TabLayout;
@@ -53,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
     private void setUpViewPage() {
         viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragment()));
         tableLayout.setupWithViewPager(viewPager);
-
         tableLayout.getTabAt(0).setIcon(R.drawable.ic_house);
         tableLayout.getTabAt(1).setIcon(R.drawable.ic_perfil);
     }
@@ -85,8 +85,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
                 break;
             case R.id.menuAcercaDe:
+                intent = new Intent(MainActivity.this, AcercaDe.class);
+                startActivity(intent);
                 break;
         }
+
         return super.onOptionsItemSelected(item);
     }
 
