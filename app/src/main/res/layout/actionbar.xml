@@ -3,8 +3,17 @@
     android:layout_width="match_parent"
     android:layout_height="?attr/actionBarSize"
     android:background="@color/colorPrimary"
-    android:elevation="@dimen/elevacion_actionbar"  >
+    android:elevation="@dimen/elevacion_actionbar"
+    android:theme="@style/Theme.Mascotas" >
 
-
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="@dimen/logon"
+        android:layout_height="41dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/patita_9"
+        android:onClick="regresar"
+        android:layout_marginLeft="@dimen/card_img_left"
+        android:layout_gravity="center_vertical"/>
 
 </Toolbar>

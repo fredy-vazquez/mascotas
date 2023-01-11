@@ -11,7 +11,7 @@
 
         <ImageView
             android:id="@+id/ivMascota"
-            android:layout_width="@dimen/card_width"
+            android:layout_width="@dimen/card_width_small"
             android:layout_height="@dimen/card_height"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/cat_9" />
@@ -44,7 +44,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="@dimen/card_img_left"
+                android:layout_width="@dimen/card_width"
                 android:layout_height="wrap_content">
 
                 <TextView
@@ -59,7 +59,7 @@
 
                 <ImageView
                     android:id="@+id/tvHuesoAmarillo"
-                    android:layout_width="@dimen/card_img"
+                    android:layout_width="@dimen/card_img_big"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/ic_bone_yellow_9" />

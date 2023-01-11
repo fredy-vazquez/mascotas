@@ -1,64 +1,93 @@
 package com.frvazquez.mascotas;
 
+import androidx.annotation.NonNull;
+
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.Fragment;
+
+import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
-import com.frvazquez.mascotas.adapter.MascotaAdaptador;
-import com.frvazquez.mascotas.model.Mascota;
+import androidx.appcompat.widget.Toolbar;
+
+
+import com.frvazquez.mascotas.adapter.PageAdapter;
+import com.frvazquez.mascotas.fragments.MascotasFragment;
+import com.frvazquez.mascotas.fragments.PerfilMascotaFragment;
+import com.frvazquez.mascotas.view.Contacto;
 import com.frvazquez.mascotas.view.TopMascotas;
+import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Mascota> mascotas;
-    private RecyclerView lista;
+    private Toolbar toolbar;
+    private TabLayout tableLayout;
+    private ViewPager viewPager;
+    private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        cargarDatos();
-        iniciarRecycleView();
+        iniciarViews();
+        setUpViewPage();
 
+        if(toolbar == null) {
+            setSupportActionBar(toolbar);
+        }
     }
 
-    public void verTop(View view) {
-        Intent intent = new Intent(MainActivity.this, TopMascotas.class);
-        startActivity(intent);
+    private void iniciarViews() {
+        toolbar = findViewById(R.id.toolbar);
+        tableLayout = findViewById(R.id.tabLayout);
+        viewPager = findViewById(R.id.viewPager);
     }
 
-    private void iniciarRecycleView() {
-        lista = findViewById(R.id.myRv);
-        LinearLayoutManager llm = new LinearLayoutManager(this);
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        lista.setLayoutManager(llm);
+    private void setUpViewPage() {
+        viewPager.setAdapter(new PageAdapter(getSupportFragmentManager(), agregarFragment()));
+        tableLayout.setupWithViewPager(viewPager);
 
-        iniciarlizarAdaptador();
+        tableLayout.getTabAt(0).setIcon(R.drawable.ic_house);
+        tableLayout.getTabAt(1).setIcon(R.drawable.ic_perfil);
+    }
+
+    private ArrayList<Fragment> agregarFragment() {
+        ArrayList<Fragment> fragments = new ArrayList<>();
+        fragments.add(new MascotasFragment());
+        fragments.add(new PerfilMascotaFragment());
+        return fragments;
     }
 
 
-    private void iniciarlizarAdaptador() {
-        MascotaAdaptador adaptador = new MascotaAdaptador(mascotas, this);
-        lista.setAdapter(adaptador);
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_opciones, menu);
+        return true;
     }
 
-    private void cargarDatos() {
-        mascotas = new ArrayList<>();
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        mascotas.add(new Mascota("Cheto", 12, R.drawable.cheto_9));
-        mascotas.add(new Mascota("Catty", 10, R.drawable.cat_9));
-        mascotas.add(new Mascota("pati", 10, R.drawable.rina_9));
-        mascotas.add(new Mascota("ramiro", 17, R.drawable.ramil_9));
-        mascotas.add(new Mascota("ron", 21, R.drawable.ron_9));
-        mascotas.add(new Mascota("cebas", 5, R.drawable.dony_9));
-        mascotas.add(new Mascota("jami<", 7, R.drawable.perry_9));
-
+        switch (item.getItemId()) {
+            case R.id.menuTopFavoritos:
+                 intent = new Intent(MainActivity.this, TopMascotas.class);
+                 startActivity(intent);
+                break;
+            case R.id.menuContacto:
+                intent = new Intent(MainActivity.this, Contacto.class);
+                startActivity(intent);
+                break;
+            case R.id.menuAcercaDe:
+                break;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

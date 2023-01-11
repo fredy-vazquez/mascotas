@@ -3,16 +3,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.TopMascotas">
+    tools:context=".view.TopMascotas"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:orientation="vertical">
 
         <include
             android:id="@+id/miActionBar"
-            layout="@layout/actionbar" />
+            layout="@layout/actionbar"
+            android:visibility="gone"/>
 
 
         <LinearLayout
@@ -28,6 +30,7 @@
                 android:contentDescription="@string/logo"
                 android:src="@drawable/patita_9"
                 android:onClick="regresar"
+                android:layout_marginLeft="@dimen/card_img_left"
                 android:layout_gravity="center_vertical"/>
 
             <TextView
@@ -41,13 +44,6 @@
                 android:textSize="@dimen/titulo"
                 android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/topMascotas"
-                android:layout_width="86dp"
-                android:layout_height="43dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/start"
-                android:src="@drawable/ic_star_9"/>
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView

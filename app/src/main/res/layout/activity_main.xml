@@ -1,74 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
     tools:context=".MainActivity"
     tools:visibility="visible" >
 
-    <RelativeLayout
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
+        android:layout_height="match_parent" >
 
         <include
             android:id="@+id/miActionBar"
-            layout="@layout/actionbar" />
+            layout="@layout/actionbar"
+            android:visibility="gone"
+            />
 
-        <LinearLayout
+        <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
-            android:layout_height="60sp"
-            android:orientation="horizontal"
-            android:elevation="@dimen/elevacion_actionbar">
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="@dimen/logon"
-                android:layout_height="41dp"
-                android:contentDescription="@string/logo"
-                android:src="@drawable/patita_9"
-                android:layout_gravity="center_vertical"/>
-
-            <TextView
-                android:id="@+id/tvTitulo"
-                android:layout_width="227dp"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_horizontal"
-                android:gravity="center"
-                android:text="@string/titulo"
-                android:textColor="@color/white"
-                android:textSize="@dimen/titulo"
-                android:textStyle="bold" />
-
-            <ImageView
-                android:id="@+id/topMascotas"
-                android:layout_width="86dp"
-                android:layout_height="43dp"
-                android:layout_gravity="center"
-                android:contentDescription="@string/start"
-                android:src="@drawable/ic_star_9"
-                android:onClick="verTop"/>
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/myRv"
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/miActionBar"/>
+                app:layout_scrollFlags="scroll">
 
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/myRv"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="-57dp"
-            android:layout_marginEnd="2dp"
-            android:background="@color/colorAccent"
-            android:foregroundGravity="right"
-            android:src="@drawable/ic_camera_9" />
-    </RelativeLayout>
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white">
+                </com.google.android.material.tabs.TabLayout>
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/viewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        </androidx.viewpager.widget.ViewPager>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

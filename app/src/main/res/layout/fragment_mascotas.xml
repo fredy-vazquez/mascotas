@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragments.MascotasFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/myRv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/myRv"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorAccent"
+        android:foregroundGravity="right"
+        android:layout_marginTop="@dimen/camara_top"
+        android:layout_marginLeft="@dimen/camara_left"
+        android:src="@drawable/ic_camera_9"
+        />
+
+</FrameLayout>
